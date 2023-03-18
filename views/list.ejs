@@ -1,0 +1,39 @@
+
+
+<%- include('header'); -%>
+
+   <div class="box heading">
+      <h1>
+         <%= dayOfWeek %>
+      </h1>
+   </div>
+
+   <div class="box">
+      
+      <% addNewTask.forEach(function(task){ %>
+      
+   
+        
+         <div class="item todoItem">
+            <input type="checkbox" name="checkbox"/>
+            <p> <%= task.name %> </p>
+            <form action="/delete" method="post">
+               <button class="deleteBtn" type="submit" name="taskId" value="<%=task._id %>" onChange="this.form.submit()">
+                  <img  class="deleteBtn" src="../images/icons8-trash-can-48.png" alt="deleteBtn" width="20" height="20">
+                </button>
+         </form>
+         </div>
+         
+        <% }) %>
+
+            <form class="item todoItem" action="/" method="post">
+               <input type="text" name="newTask" placeholder="Add Task Here.." autocomplete="off">
+               <button class="addTask" type="submit">+</button>
+            </form>
+   </div>
+
+
+   </body>
+
+   </html>
+
